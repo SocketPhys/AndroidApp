@@ -1,8 +1,11 @@
 package org.incubatex.incubatex;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.google.gson.GsonBuilder;
 
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -10,8 +13,11 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-    public SectionsPagerAdapter(FragmentManager fm) {
+    private CityData cityData;
+
+    public SectionsPagerAdapter(FragmentManager fm, CityData cityData) {
         super(fm);
+        this.cityData = cityData;
     }
 
     @Override
@@ -20,7 +26,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // Return a PlaceholderFragment (defined as a static inner class below).
         switch(position){
             case 0:
-                return new CountDownFragment();
+                CountDownFragment cdf = new CountDownFragment();
+                Bundle args = new Bundle();
+                args.putString("cityData", new GsonBuilder().create().toJson(cityData).toString()); // serialize cityData as json
+                cdf.setArguments(args);
+                return cdf;
             default:
                 return PlaceholderFragment.newInstance(position + 1);
         }
