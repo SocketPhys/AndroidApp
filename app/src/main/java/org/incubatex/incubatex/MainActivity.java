@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,14 +24,27 @@ import java.io.InputStreamReader;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText cityField;
+    private Button okButton;
+    private SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+        prefs = getPreferences(Context.MODE_PRIVATE);
         if(prefs.getString("city", null) != null){
             prepareForAndLaunchTabActivity(prefs.getString("city", null));
         }
+        okButton = (Button) findViewById(R.id.okButton);
+        cityField = (EditText) findViewById(R.id.cityField);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putString("city", cityField.getText().toString());
+                prepareForAndLaunchTabActivity(cityField.getText().toString());
+            }
+        });
     }
 
     private void prepareForAndLaunchTabActivity(String city){

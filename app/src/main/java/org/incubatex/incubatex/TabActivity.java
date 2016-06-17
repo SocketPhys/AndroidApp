@@ -1,5 +1,6 @@
 package org.incubatex.incubatex;
 
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -42,7 +43,7 @@ public class TabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // cityData = new GsonBuilder().create().fromJson(getIntent().getExtras().getString("cityData"), CityData.class);
         setContentView(R.layout.activity_tabs);
-
+        cityData = (CityData) new GsonBuilder().create().fromJson(getIntent().getExtras().getString("cityData"), CityData.class);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -52,6 +53,7 @@ public class TabActivity extends AppCompatActivity {
         viewPager.setAdapter(mSectionsPagerAdapter);
 
         tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor(cityData.getColor()));
         tabLayout.setupWithViewPager(viewPager);
         setUpTabIcons();
      }

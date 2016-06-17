@@ -6,4 +6,8 @@ package org.incubatex.incubatex;
 public class CityData {
     private String city;
     private String color;
+
+    public String getColor(){
+        return color;
+    }
 }
