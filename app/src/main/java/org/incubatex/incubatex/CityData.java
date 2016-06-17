@@ -7,6 +7,7 @@ public class CityData {
     private String city;
     private String color;
     private String twitterSearchTerm;
+    private String twitterAPIKey;
 
     public String getCity(){
         return city;
@@ -16,5 +17,8 @@ public class CityData {
     }
     public String getTwitterSearchTerm(){
         return twitterSearchTerm;
+    }
+    public String getTwitterAPIKey(){
+        return twitterAPIKey;
     }
 }

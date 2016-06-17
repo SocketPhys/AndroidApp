@@ -2,16 +2,19 @@
 	"sf": {
 	  	"city": "sf",
 		"color": "#ff9100",
-		"twitterSearchTerm": "#DUBNATION"
+		"twitterSearchTerm": "#DUBNATION",
+	  	"twitterAPIKey": "TWITTER_API_KEY"
 	},
 	"dfw": {
 	  	"city": "dfw",
 		"color": "#61CFE1",
-		"twitterSearchTerm": "#incubatedfw"
+		"twitterSearchTerm": "#incubatedfw",
+	  "twitterAPIKey": "TWITTER_API_KEY"
 	},	
 	"nyc": {
 	  	"city": "nyc",
 		"color": "#004183",
-		"twitterSearchTerm": "#incubatenyc"
+		"twitterSearchTerm": "#incubatenyc",
+	  	"twitterAPIKey": "TWITTER_API_KEY"
 	}
 }
