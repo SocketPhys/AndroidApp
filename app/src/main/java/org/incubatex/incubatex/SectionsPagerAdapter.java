@@ -10,6 +10,7 @@ import com.google.gson.GsonBuilder;
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
  * one of the sections/tabs/pages.
+ * Fragments are instantiated here.
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -27,10 +28,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         switch(position){
             case 0:
                 CountDownFragment cdf = new CountDownFragment();
-                Bundle args = new Bundle();
-                args.putString("cityData", new GsonBuilder().create().toJson(cityData).toString()); // serialize cityData as json
-                cdf.setArguments(args);
+                putCityDataAsArg(cdf);
                 return cdf;
+            case 2:
+                BuzzFragment bf = new BuzzFragment();
+                putCityDataAsArg(bf);
+                return bf;
             default:
                 return PlaceholderFragment.newInstance(position + 1);
         }
@@ -53,5 +56,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return "Buzz";
         }
         return null;
+    }
+
+    private void putCityDataAsArg(Fragment fragment){
+        Bundle args = new Bundle();
+        args.putString("cityData", new GsonBuilder().create().toJson(cityData).toString()); // serialize cityData as json
+        fragment.setArguments(args);
     }
 }

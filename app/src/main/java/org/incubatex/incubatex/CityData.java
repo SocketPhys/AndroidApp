@@ -6,8 +6,15 @@ package org.incubatex.incubatex;
 public class CityData {
     private String city;
     private String color;
+    private String twitterSearchTerm;
 
+    public String getCity(){
+        return city;
+    }
     public String getColor(){
         return color;
+    }
+    public String getTwitterSearchTerm(){
+        return twitterSearchTerm;
     }
 }

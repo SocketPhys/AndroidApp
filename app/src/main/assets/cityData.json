@@ -1,14 +1,17 @@
 {
 	"sf": {
 	  	"city": "sf",
-		"color": "#ff9100"
+		"color": "#ff9100",
+		"twitterSearchTerm": "#DUBNATION"
 	},
 	"dfw": {
 	  	"city": "dfw",
-		"color": "#61CFE1"
+		"color": "#61CFE1",
+		"twitterSearchTerm": "#incubatedfw"
 	},	
 	"nyc": {
 	  	"city": "nyc",
-		"color": "#004183"
+		"color": "#004183",
+		"twitterSearchTerm": "#incubatenyc"
 	}
 }
