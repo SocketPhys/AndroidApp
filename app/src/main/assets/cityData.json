@@ -1,0 +1,14 @@
+{
+	"sf": {
+	  	"city": "sf",
+		"color": "#FF7246"
+	},
+	"dfw": {
+	  	"city": "dfw",
+		"color": "#61CFE1"
+	},	
+	"nyc": {
+	  	"city": "nyc",
+		"color": "#004183"
+	}
+}

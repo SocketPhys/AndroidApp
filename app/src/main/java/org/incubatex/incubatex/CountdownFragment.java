@@ -59,16 +59,21 @@ public class CountDownFragment extends Fragment {
         public CountDown(long millisUntilFinished, boolean started) {
             super(millisUntilFinished, 1000); // update every second
             hackingStarted = started;
+            if(hackingStarted){
+                labelTextView.setText("Until Hacking Ends");
+            } else {
+                labelTextView.setText("Until Hacking Begins");
+            }
         }
 
         @Override
         public void onTick(long millisUntilFinished) {
             // compute values
             long totalSecondsLeft = millisUntilFinished / 1000;
-            long hours = totalSecondsLeft / 216000;
+            long hours = totalSecondsLeft / 3600;
             long minutes = totalSecondsLeft % 3600 / 60;
             long seconds = totalSecondsLeft % 60;
-
+            // Log.d("Time Left", String.format("%02d:%02d:%02d", hours, minutes, seconds));
             if(!digitTextViews[0][0].getText().equals(String.valueOf(hours / 10))){ // update hours 10's place
                 updateTextViewDigit(digitTextViews[0][0], (int)(hours / 10));
             }
@@ -104,7 +109,9 @@ public class CountDownFragment extends Fragment {
         long millisUntilFinished;
         boolean started;
         Calendar now = new GregorianCalendar();
-        Calendar hackingBegins = new GregorianCalendar(2016, 7, 6, 11, 0); // 12pm, August 6
+        Calendar hackingBegins = new GregorianCalendar(2016, 5, 17, 11, 0); // 12pm, June 17
+        Log.d("hackingBegins", hackingBegins.getTime().toString());
+        Log.d("now", now.getTime().toString());
         Calendar hackingEnds = new GregorianCalendar(2016, 7, 7, 11, 0); // 12 pm, August 7
         if(now.compareTo(hackingBegins) < 0){
             millisUntilFinished = hackingBegins.getTimeInMillis() - now.getTimeInMillis();
@@ -119,7 +126,6 @@ public class CountDownFragment extends Fragment {
     }
 
     private void updateTextViewDigit(TextView textView, int digit){
-        Log.d("Updating TextView", digit+"");
         textView.setText(String.valueOf(digit));
     }
 }

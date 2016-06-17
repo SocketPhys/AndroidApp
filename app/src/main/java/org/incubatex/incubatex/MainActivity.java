@@ -1,62 +1,62 @@
 package org.incubatex.incubatex;
 
-import android.graphics.drawable.Drawable;
-import android.support.design.widget.TabLayout;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+
 public class MainActivity extends AppCompatActivity {
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager viewPager;
-
-    private TabLayout tabLayout;
-
-    int[] tabIcons = {
-        R.drawable.ic_alarm, // countdown icon
-        R.drawable.ic_calendar, //schedule icon
-        R.drawable.ic_twitter
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
-        viewPager = (ViewPager) findViewById(R.id.container);
-        viewPager.setAdapter(mSectionsPagerAdapter);
-
-        tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setUpTabIcons();
-     }
-
-    private void setUpTabIcons(){
-        for(int i = 0; i < tabLayout.getTabCount(); i++)
-            tabLayout.getTabAt(i).setIcon(tabIcons[i]);
+        SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+        if(prefs.getString("city", null) != null){
+            prepareForAndLaunchTabActivity(prefs.getString("city", null));
+        }
     }
 
+    private void prepareForAndLaunchTabActivity(String city){
+        Intent intent = new Intent(this, TabActivity.class);
+        Bundle extras = new Bundle();
+        extras.putString("cityData", getCityData(city));
+        intent.putExtras(extras);
+        startActivity(intent);
+        this.finish();
+    }
+
+    private String getCityData(String cityName) {
+        try {
+            InputStream inputStream = getAssets().open("cityData.json");
+            BufferedReader in =
+                    new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            String line;
+            StringBuffer buffer = new StringBuffer();
+            while((line = in.readLine()) != null)
+                buffer.append(line);
+            String jsonString = buffer.toString();
+            JsonObject allCitiesJson = new JsonParser().parse(jsonString).getAsJsonObject();
+            return allCitiesJson.getAsJsonObject(cityName).toString();
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
