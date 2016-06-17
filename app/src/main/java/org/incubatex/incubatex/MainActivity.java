@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().putString("city", cityField.getText().toString());
+                prefs.edit().putString("city", cityField.getText().toString()).commit();
                 prepareForAndLaunchTabActivity(cityField.getText().toString());
             }
         });
