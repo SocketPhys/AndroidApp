@@ -1,20 +1,142 @@
 {
-	"sf": {
-	  	"city": "sf",
-		"color": "#ff9100",
-		"twitterSearchTerm": "#DUBNATION",
-	  	"twitterAPIKey": "TWITTER_API_KEY"
-	},
-	"dfw": {
-	  	"city": "dfw",
-		"color": "#61CFE1",
-		"twitterSearchTerm": "#incubatedfw",
-	  "twitterAPIKey": "TWITTER_API_KEY"
-	},	
-	"nyc": {
-	  	"city": "nyc",
-		"color": "#004183",
-		"twitterSearchTerm": "#incubatenyc",
-	  	"twitterAPIKey": "TWITTER_API_KEY"
-	}
+  "sf":{
+    "city":"sf",
+    "color":"#ff9100",
+    "twitterSearchTerm":"#DUBNATION",
+    "scheduleSaturday":[
+      {
+        "name":"Opening Ceremony",
+        "time":"10:00 am"
+      },
+      {
+        "name":"Hacking Begins",
+        "time":"12:00 pm"
+      },
+      {
+        "name":"Lunch",
+        "time":"12:30 pm"
+      },
+      {
+        "name":"Workshops",
+        "time":"2:00 pm"
+      },
+      {
+        "name":"Dinner",
+        "time":"7:00 pm"
+      }
+    ],
+    "scheduleSunday":[
+      {
+        "name":"Breakfast",
+        "time":"10:00 am"
+      },
+      {
+        "name":"Devpost Submissions Due",
+        "time":"12:00 pm"
+      },
+      {
+        "name":"Judges Expo",
+        "time":"12:30 pm"
+      },
+      {
+        "name":"Lunch",
+        "time":"1:30 pm"
+      },
+      {
+        "name":"Finalist Demos",
+        "time":"2:30 pm"
+      },
+      {
+        "name":"Awards Ceremony",
+        "time":"3:30 pm"
+      }
+    ]
+  },
+  "dfw":{
+    "city":"dfw",
+    "color":"#61CFE1",
+    "twitterSearchTerm":"#incubatedfw",
+    "scheduleSaturday":[
+      {
+        "name":"Opening Ceremony",
+        "time":"10:00 am"
+      },
+      {
+        "name":"Hacking Begins",
+        "time":"12:00 pm"
+      },
+      {
+        "name":"Lunch",
+        "time":"12:30 pm"
+      },
+      {
+        "name":"Workshops",
+        "time":"2:00 pm"
+      },
+      {
+        "name":"Dinner",
+        "time":"7:00 pm"
+      }
+    ],
+    "scheduleSunday":[
+      {
+        "name":"Breakfast",
+        "time":"10:00 am"
+      },
+      {
+        "name":"Devpost Submissions Due",
+        "time":"12:00 pm"
+      },
+      {
+        "name":"Judges Expo",
+        "time":"12:30 pm"
+      },
+      {
+        "name":"Lunch",
+        "time":"1:30 pm"
+      },
+      {
+        "name":"Finalist Demos",
+        "time":"2:30 pm"
+      },
+      {
+        "name":"Awards Ceremony",
+        "time":"3:30 pm"
+      }
+    ]
+  },
+  "nyc":{
+    "city":"nyc",
+    "color":"#004183",
+    "twitterSearchTerm":"#incubatenyc",
+    "scheduleSaturday":[
+      {
+        "name":"Opening Ceremony",
+        "time":"10:00 am"
+      },
+      {
+        "name":"Hacking Begins",
+        "time":"12:00 pm"
+      },
+      {
+        "name":"Lunch",
+        "time":"12:30 pm"
+      }
+    ],
+    "scheduleSunday":[
+      {
+        "name":"Breakfast",
+        "time":"10:00 am"
+      },
+      {
+        "name":"Devpost Submissions Due",
+        "time":"12:00 pm"
+      },
+      {
+        "name":"Judges Expo",
+        "time":"12:30 pm"
+      }
+    ]
+  }
 }
+

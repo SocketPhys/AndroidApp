@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/background" android:minHeight="48dp" android:weightSum="3.5" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="13:00 A.M."
+        android:gravity="center_vertical"
+        android:id="@+id/timeTextView"
+        android:layout_weight="1"
+        android:textColor="@color/foregroundText"/>
+    <!--<View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#000"/>-->
+    <TextView
+        android:layout_width="0dp"
+        android:id="@+id/eventContentTextView"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_weight="2.5"
+        android:paddingLeft="5dp"
+        android:text="lunch will be served in the cafeteria"
+        android:textColor="@color/foregroundText"/>
+</LinearLayout>

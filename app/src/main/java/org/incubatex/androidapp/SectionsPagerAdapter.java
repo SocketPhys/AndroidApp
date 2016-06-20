@@ -30,6 +30,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 CountDownFragment cdf = new CountDownFragment();
                 putCityDataAsArg(cdf);
                 return cdf;
+            case 1:
+                ScheduleFragment sf = new ScheduleFragment();
+                putCityDataAsArg(sf);
+                return sf;
             case 2:
                 BuzzFragment bf = new BuzzFragment();
                 putCityDataAsArg(bf);

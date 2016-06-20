@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".TabActivity"
-    android:background="#666">
+    android:background="@color/background">
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/tabBackground"
         app:tabSelectedTextColor="@color/tabSelected"
         app:tabTextColor="@color/tabUnselected"
         app:tabMode="fixed" />
