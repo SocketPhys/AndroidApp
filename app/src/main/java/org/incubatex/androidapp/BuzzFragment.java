@@ -1,4 +1,4 @@
-package org.incubatex.incubatex;
+package org.incubatex.androidapp;
 
 /**
  * Created by avik on 6/16/2016.
@@ -23,8 +23,8 @@ public class BuzzFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         cityData = new GsonBuilder().create().fromJson(getArguments().getString("cityData"), CityData.class);
-        View rootView = inflater.inflate(R.layout.fragment_buzz, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.testBuzzTextView);
+        View rootView = inflater.inflate(org.incubatex.androidapp.R.layout.fragment_buzz, container, false);
+        TextView textView = (TextView) rootView.findViewById(org.incubatex.androidapp.R.id.testBuzzTextView);
         textView.setText(cityData.getTwitterSearchTerm());
         return rootView;
     }

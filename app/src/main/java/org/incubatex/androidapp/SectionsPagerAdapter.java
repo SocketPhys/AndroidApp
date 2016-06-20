@@ -1,4 +1,4 @@
-package org.incubatex.incubatex;
+package org.incubatex.androidapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

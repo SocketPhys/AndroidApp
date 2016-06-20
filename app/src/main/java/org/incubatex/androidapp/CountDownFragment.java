@@ -1,13 +1,11 @@
 
-package org.incubatex.incubatex;
+package org.incubatex.androidapp;
 
 /**
  * Created by avik on 6/16/2016.
 */
 
-import android.app.ActionBar;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
@@ -25,7 +23,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class CountDownFragment extends Fragment {
-
+    private static final boolean COUNTDOWN_DEV = true;
+    private final Calendar createdAt;
     private TextView[] unitLabelTextViews;
     private TextView[][] digitTextViews;
     private TextView labelTextView;
@@ -38,6 +37,7 @@ public class CountDownFragment extends Fragment {
     private int viewHeight = Integer.MAX_VALUE;
     private boolean hackingEnded;
     public CountDownFragment() {
+        createdAt = new GregorianCalendar();
     }
 
     @Override
@@ -65,6 +65,7 @@ public class CountDownFragment extends Fragment {
         };
         labelTextView = (TextView) rootView.findViewById(R.id.labelTextView);
         progressRect = (ImageView) rootView.findViewById(R.id.progressRect);
+        progressRect.setBackgroundColor(Color.parseColor(cityData.getColor()));
         for(TextView[] number : digitTextViews)
             for(TextView digit : number)
                 digit.setTextColor(Color.parseColor(cityData.getColor()));
@@ -72,10 +73,8 @@ public class CountDownFragment extends Fragment {
             @Override
             public void run() {
                 CountDownFragment.this.viewHeight = rootView.getHeight();
-                if(hackingEnded){
-                    RelativeLayout.LayoutParams progressRectLayoutParams = new RelativeLayout.LayoutParams(progressRect.getWidth(), viewHeight);
-                    progressRectLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-                    progressRect.setLayoutParams(progressRectLayoutParams);
+                if (hackingEnded) {
+                    updateProgressRectHeight(viewHeight);
                 }
             }
         });
@@ -104,9 +103,7 @@ public class CountDownFragment extends Fragment {
             long minutes = totalSecondsLeft % 3600 / 60;
             long seconds = totalSecondsLeft % 60;
             if(hackingStarted){
-                RelativeLayout.LayoutParams progressRectLayoutParams = new RelativeLayout.LayoutParams(progressRect.getWidth(), viewHeight-(int)(viewHeight*totalSecondsLeft/60));
-                progressRectLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-                progressRect.setLayoutParams(progressRectLayoutParams);
+                updateProgressRectHeight(viewHeight-(int)(viewHeight*totalSecondsLeft/(COUNTDOWN_DEV ? 120 : 86400)));
             }
             // Log.d("Time Left", String.format("%02d:%02d:%02d", hours, minutes, seconds));
             if(!digitTextViews[0][0].getText().equals(String.valueOf(hours / 10))){ // update hours 10's place
@@ -134,7 +131,9 @@ public class CountDownFragment extends Fragment {
         @Override
         public void onFinish() {
             updateTextViewDigit(digitTextViews[2][1], 0);
-
+            if(hackingStarted){
+                updateProgressRectHeight(viewHeight);
+            }
             CountDownFragment.this.createCountDown();
         }
     }
@@ -146,10 +145,14 @@ public class CountDownFragment extends Fragment {
         long millisUntilFinished;
         boolean started;
         Calendar now = new GregorianCalendar();
-        Calendar hackingBegins = new GregorianCalendar(2016, 5, 16, 23, 45); // 12pm, June 17
-        Log.d("hackingBegins", hackingBegins.getTime().toString());
-        Log.d("now",now.getTime().toString());
-        Calendar hackingEnds = new GregorianCalendar(2016, 5, 16, 23, 46); // 12 pm, August 7
+        Calendar hackingBegins = new GregorianCalendar(2016, 7, 6, 11, 0); // 12pm, August 6
+        Calendar hackingEnds = new GregorianCalendar(2016, 7, 7, 11, 0); // 12 pm, August 7
+        if(COUNTDOWN_DEV){  // for testing, make the hackathon 2 minutes long, starting in 30 secnds
+            hackingBegins = (Calendar)this.createdAt.clone();
+            hackingBegins.add(Calendar.SECOND, 30);
+            hackingEnds = (Calendar)hackingBegins.clone();
+            hackingEnds.add(Calendar.MINUTE, 2);
+        }
         if(now.compareTo(hackingBegins) < 0){
             millisUntilFinished = hackingBegins.getTimeInMillis() - now.getTimeInMillis();
             started = false;
@@ -168,5 +171,11 @@ public class CountDownFragment extends Fragment {
 
     private void updateTextViewDigit(TextView textView, int digit){
         textView.setText(String.valueOf(digit));
+    }
+
+    private void updateProgressRectHeight(int height){
+        RelativeLayout.LayoutParams progressRectLayoutParams = new RelativeLayout.LayoutParams(progressRect.getWidth(), height);
+        progressRectLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        progressRect.setLayoutParams(progressRectLayoutParams);
     }
 }

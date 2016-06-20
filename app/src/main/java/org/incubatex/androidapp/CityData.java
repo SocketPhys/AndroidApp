@@ -1,4 +1,4 @@
-package org.incubatex.incubatex;
+package org.incubatex.androidapp;
 
 /**
  * Created by avik on 6/16/2016.

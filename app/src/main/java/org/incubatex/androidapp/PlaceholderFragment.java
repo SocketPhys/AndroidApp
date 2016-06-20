@@ -1,4 +1,4 @@
-package org.incubatex.incubatex;
+package org.incubatex.androidapp;
 
 /**
  * Created by avik on 6/16/2016.
@@ -39,9 +39,9 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+        View rootView = inflater.inflate(org.incubatex.androidapp.R.layout.fragment_main, container, false);
+        TextView textView = (TextView) rootView.findViewById(org.incubatex.androidapp.R.id.section_label);
+        textView.setText(getString(org.incubatex.androidapp.R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
         return rootView;
     }
 }

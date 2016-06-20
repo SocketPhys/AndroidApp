@@ -1,4 +1,4 @@
-package org.incubatex.incubatex;
+package org.incubatex.androidapp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -31,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        prefs = getPreferences(Context.MODE_PRIVATE);
+        setContentView(org.incubatex.androidapp.R.layout.activity_main);
+        prefs = getSharedPreferences("globalPreferences", Context.MODE_PRIVATE);
         if(prefs.getString("city", null) != null){
             prepareForAndLaunchTabActivity(prefs.getString("city", null));
         }
-        okButton = (Button) findViewById(R.id.okButton);
-        cityField = (EditText) findViewById(R.id.cityField);
+        okButton = (Button) findViewById(org.incubatex.androidapp.R.id.okButton);
+        cityField = (EditText) findViewById(org.incubatex.androidapp.R.id.cityField);
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(org.incubatex.androidapp.R.menu.menu_main, menu);
         return true;
     }
 
@@ -89,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == org.incubatex.androidapp.R.id.action_settings) {
             return true;
         }
 

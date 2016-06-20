@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/progressRect"
-        android:background="#ff9100"
+        android:background="#fff"
         android:layout_alignParentBottom="true"
         />
     <LinearLayout
@@ -47,7 +47,8 @@
                     android:paddingRight="6dp"
                     android:layout_marginRight="1dp"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/digitTextView00"/>
+                    android:id="@+id/digitTextView00"
+                    android:fontFamily="sans-serif-light" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,7 +60,8 @@
                     android:paddingRight="6dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="1dp"
-                    android:id="@+id/digitTextView01"/>
+                    android:id="@+id/digitTextView01"
+                    android:fontFamily="sans-serif-light" />
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
@@ -90,7 +92,8 @@
                     android:paddingRight="6dp"
                     android:layout_marginRight="1dp"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/digitTextView10"/>
+                    android:id="@+id/digitTextView10"
+                    android:fontFamily="sans-serif-light" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,7 +105,8 @@
                     android:paddingRight="6dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="1dp"
-                    android:id="@+id/digitTextView11"/>
+                    android:id="@+id/digitTextView11"
+                    android:fontFamily="sans-serif-light" />
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
@@ -133,7 +137,8 @@
                     android:paddingRight="6dp"
                     android:layout_marginRight="1dp"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/digitTextView20"/>
+                    android:id="@+id/digitTextView20"
+                    android:fontFamily="sans-serif-light" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -145,7 +150,8 @@
                     android:paddingRight="6dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="1dp"
-                    android:id="@+id/digitTextView21"/>
+                    android:id="@+id/digitTextView21"
+                    android:fontFamily="sans-serif-light" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
