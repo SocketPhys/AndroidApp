@@ -2,7 +2,7 @@
   "sf":{
     "city":"sf",
     "color":"#ff9100",
-    "twitterSearchTerm":"#DUBNATION",
+    "twitterHashtag":"DUBNATION",
     "scheduleSaturday":[
       {
         "name":"Opening Ceremony",
@@ -55,7 +55,7 @@
   "dfw":{
     "city":"dfw",
     "color":"#61CFE1",
-    "twitterSearchTerm":"#incubatedfw",
+    "twitterHashtag":"BeingAsian",
     "scheduleSaturday":[
       {
         "name":"Opening Ceremony",
@@ -108,7 +108,7 @@
   "nyc":{
     "city":"nyc",
     "color":"#004183",
-    "twitterSearchTerm":"#incubatenyc",
+    "twitterHashtag":"BrexitVote",
     "scheduleSaturday":[
       {
         "name":"Opening Ceremony",

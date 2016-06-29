@@ -8,13 +8,13 @@ import com.google.gson.GsonBuilder;
 public class CityData {
     private String city;
     private String color;
-    private String twitterSearchTerm;
+    private String twitterHashtag;
     private ScheduleEvent[] scheduleSaturday;
     private ScheduleEvent[] scheduleSunday;
 
     public String getCity(){ return city; }
     public String getColor(){ return color; }
-    public String getTwitterSearchTerm(){ return twitterSearchTerm; }
+    public String getTwitterHashtag(){ return twitterHashtag; }
     public ScheduleEvent[] getScheduleSaturday(){ return scheduleSaturday; }
     public ScheduleEvent[] getScheduleSunday(){ return scheduleSunday; }
 
