@@ -38,15 +38,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 BuzzFragment bf = new BuzzFragment();
                 putCityDataAsArg(bf);
                 return bf;
-            default:
-                return PlaceholderFragment.newInstance(position + 1);
+            case 3:
+                VenueMapFragment vmf = new VenueMapFragment();
+                putCityDataAsArg(vmf);
+                return vmf;
         }
     }
 
     @Override
     public int getCount() {
-        // Show 3 total pages.
-        return 3;
+        return 4;
     }
 
     @Override
@@ -58,6 +59,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return "Schedule";
             case 2:
                 return "Buzz";
+            case 3:
+                return "Map";
         }
         return null;
     }
