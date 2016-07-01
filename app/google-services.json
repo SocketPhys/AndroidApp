@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "810269803871",
-    "firebase_url": "https://incubatex-app.firebaseio.com",
-    "project_id": "incubatex-app",
-    "storage_bucket": "incubatex-app.appspot.com"
+    "project_number": "693387637004",
+    "firebase_url": "https://incubatex-app-209ff.firebaseio.com",
+    "project_id": "incubatex-app-209ff",
+    "storage_bucket": "incubatex-app-209ff.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:810269803871:android:efc9870a72b7519a",
+        "mobilesdk_app_id": "1:693387637004:android:3c18e64bdc96e4fc",
         "android_client_info": {
-          "package_name": "org.incubatex.incubatex"
+          "package_name": "org.incubatex.androidapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "810269803871-qpl8lf42f7esm4q35hglujl4ibh7sndf.apps.googleusercontent.com",
+          "client_id": "693387637004-0nae9ck4b96kj3hq8a2lg3kjvlqgijhq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC7DA3TBwcQ-_Qqc0GU2gxVEOywFrd6h7U"
+          "current_key": "AIzaSyCnkMG1PWn8mKrzP-MHeoQGXSEbqtDI6Xg"
         }
       ],
       "services": {

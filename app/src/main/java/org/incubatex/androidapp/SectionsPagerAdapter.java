@@ -43,6 +43,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 putCityDataAsArg(vmf);
                 return vmf;
         }
+        return null;
     }
 
     @Override
