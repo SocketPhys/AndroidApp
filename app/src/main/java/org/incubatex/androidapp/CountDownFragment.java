@@ -13,7 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,13 +22,17 @@ import com.google.gson.GsonBuilder;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
+
 public class CountDownFragment extends Fragment {
     private static final boolean COUNTDOWN_DEV = true;
     private final Calendar createdAt;
     private TextView[] unitLabelTextViews;
     private TextView[][] digitTextViews;
     private TextView labelTextView;
-    private ImageView progressRect;
+    private View progressRect;
 
     private CountDown countDown;
 
@@ -64,7 +68,7 @@ public class CountDownFragment extends Fragment {
                 }
         };
         labelTextView = (TextView) rootView.findViewById(R.id.labelTextView);
-        progressRect = (ImageView) rootView.findViewById(R.id.progressRect);
+        progressRect = rootView.findViewById(R.id.progressRect);
         progressRect.setBackgroundColor(Color.parseColor(cityData.getColor()));
         for(TextView[] number : digitTextViews)
             for(TextView digit : number)
@@ -80,6 +84,16 @@ public class CountDownFragment extends Fragment {
         });
         createCountDown();
 
+
+        // Display recieved notifications (Updates)
+        ListView updatesListView = (ListView) rootView.findViewById(R.id.updatesListView);
+
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this.getContext()).build();
+        Realm.setDefaultConfiguration(realmConfig);
+
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<NotificationData> realmResults = realm.where(NotificationData.class).findAll();
+        updatesListView.setAdapter(new NotificationDataListAdapter(this.getContext(), R.layout.list_item_notification_data, realmResults.toArray(new NotificationData[realmResults.size()])));
         return rootView;
     }
 
